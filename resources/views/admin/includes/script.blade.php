@@ -17,6 +17,10 @@
 <!--chartjs js-->
 <script src="{{asset('backend/assets/js/chart/chartjs/chart.min.js')}}"></script>
 
+<!--ck editor-->
+<script src="{{asset('backend/assets/js/editor/ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('backend/assets/js/editor/ckeditor/ckeditor.custom.js')}}"></script>
+
 <!-- lazyload js-->
 <script src="{{asset('backend/assets/js/lazysizes.min.js')}}"></script>
 
