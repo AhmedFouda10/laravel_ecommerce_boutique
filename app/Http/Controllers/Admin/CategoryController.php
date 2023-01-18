@@ -4,14 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\AddCategory;
-use App\Http\Requests\UpdateCategory;
-use App\Repository\Modules\Category\CategoryInterface;
+use App\Http\Requests\Modules\Category\AddCategory;
 use Illuminate\Support\Facades\Validator;
+use App\Repository\Modules\Category\CategoryInterface;
 
 class CategoryController extends Controller
 {
-private $categoryInterface;
+    private $categoryInterface;
     public function __construct(CategoryInterface $categoryInterface)
     {
         $this->categoryInterface=$categoryInterface;

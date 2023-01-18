@@ -36,25 +36,18 @@
                 </li>
                 <li class="onhover-dropdown">
                     <a class="txt-dark" href="javascript:void(0)">
-                        <h6>EN</h6>
+                        <h6 class="text-uppercase">{{app()->getLocale()}}</h6>
                     </a>
                     <ul class="language-dropdown onhover-show-div p-20">
-                        <li>
-                            <a href="javascript:void(0)" data-lng="en">
-                                <i class="flag-icon flag-icon-is"></i>English</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" data-lng="es">
-                                <i class="flag-icon flag-icon-um"></i>Spanish</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" data-lng="pt">
-                                <i class="flag-icon flag-icon-uy"></i>Portuguese</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" data-lng="fr">
-                                <i class="flag-icon flag-icon-nz"></i>French</a>
-                        </li>
+                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                            <li class="w-100 d-block text-center fw-bold">
+                                <a  style="color: #FF4C3B" class="@if (app()->getLocale()=='ar')
+                                    rtl
+                                @endif" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    {{ $properties['native'] }}
+                                </a>
+                            </li>
+                        @endforeach
                     </ul>
                 </li>
                 <li class="onhover-dropdown">

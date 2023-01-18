@@ -2,7 +2,8 @@
 
 namespace App\Providers;
 
-
+use App\Repository\Modules\Brand\BrandInterface;
+use App\Repository\Modules\Brand\DBbrand;
 use Illuminate\Support\ServiceProvider;
 use App\Repository\Modules\Category\DBcategory;
 use App\Repository\Modules\Category\CategoryInterface;
@@ -17,6 +18,7 @@ class RepositoryServiesProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(CategoryInterface::class,DBcategory::class);
+        $this->app->bind(BrandInterface::class,DBbrand::class);
     }
 
     /**

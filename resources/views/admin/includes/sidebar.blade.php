@@ -57,34 +57,24 @@
                     <li>
                         <a href="javascript:void(0)">
                             <i class="fa fa-circle"></i>
-                            <span>Digital</span>
+                            <span>Brand</span>
                             <i class="fa fa-angle-right pull-right"></i>
                         </a>
 
                         <ul class="sidebar-submenu">
                             <li>
-                                <a href="category-digital.html">
-                                    <i class="fa fa-circle"></i>Category
+                                <a href="{{route('admin.brand.all')}}">
+                                    <i class="fa fa-circle"></i>List Brand
                                 </a>
                             </li>
 
                             <li>
-                                <a href="category-digitalsub.html">
-                                    <i class="fa fa-circle"></i>Sub Category
+                                <a href="{{route('admin.brand.create')}}">
+                                    <i class="fa fa-circle"></i>Add Brand
                                 </a>
                             </li>
 
-                            <li>
-                                <a href="product-listdigital.html">
-                                    <i class="fa fa-circle"></i>Product List
-                                </a>
-                            </li>
 
-                            <li>
-                                <a href="add-digital-product.html">
-                                    <i class="fa fa-circle"></i>Add Product
-                                </a>
-                            </li>
                         </ul>
                     </li>
 

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title')
-    Users || Multikart Admin Panel
+    Brands || Multikart Admin Panel
 @endsection
 @section('content')
     <div class="page-body">
@@ -10,8 +10,8 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="page-header-left">
-                            <h3>User
-                                <small>Manage User</small>
+                            <h3>Brand
+                                <small>Manage Brand</small>
                             </h3>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                                     <i data-feather="home"></i>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item active">User</li>
+                            <li class="breadcrumb-item active">Brand</li>
                         </ol>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="pull-right">
-                                <a class="btn btn-primary" href="{{ route('admin.category.all') }}"> Back</a>
+                                <a class="btn btn-primary" href="{{ route('admin.brand.all') }}"> Back</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -59,10 +59,10 @@
                                                 <li class="nav-item"><a class="nav-link active show" id="general-tab"
                                                         data-bs-toggle="tab" href="#general" role="tab"
                                                         aria-controls="general" aria-selected="true" data-original-title=""
-                                                        title="">Create New Category</a></li>
+                                                        title="">Edit Brand</a></li>
 
                                             </ul>
-                                            <form action="{{ route('admin.category.store') }}" method="post">
+                                            <form action="{{ route('admin.brand.update',$brand->id) }}" method="post">
                                                 @csrf
                                                 <div class="tab-content" id="myTabContent">
                                                     <div class="tab-pane fade active show" id="general" role="tabpanel"
@@ -73,7 +73,7 @@
                                                                 Name</label>
                                                             <div class="col-xl-8 col-md-7">
                                                                 <input class="form-control" id="validationCustom0"
-                                                                    type="text" name="name" required value="{{old('name')}}">
+                                                                    type="text" name="name" required value="{{(old('name') ? old('name') : $brand->name)}}">
                                                             </div>
                                                             {{-- @error('name')
                                                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -84,7 +84,7 @@
                                                                 Description</label>
                                                             <div class="col-xl-8 col-md-7">
                                                                 <div class="editor-space">
-                                                                    <textarea id="editor1" cols="30" rows="10" name="description" ></textarea>
+                                                                    <textarea id="editor1" cols="30" rows="10" name="description" >{!! $brand->description !!}</textarea>
                                                                 </div>
                                                             </div>
 
