@@ -71,20 +71,24 @@
     //     "</ui>"
     // )
 
-    $(document).ready(function() {
-                @if (app()->getLocale() == 'ar')
-                    $("html").attr("dir", "");
-                    $('.btn-rtl').addClass('rtl')
-                    $('.btn-rtl').text('LTR');
-                    $('body').addClass('rtl');
-                    $("html").attr("dir", "rtl");
-                @else
-                    $('.btn-rtl').text('RTL');
-                    $('.btn-rtl').removeClass('rtl')
-                    $('body').removeClass('rtl');
-                    $("html").attr("dir", "");
-                @endif
-    });
+    @if (app()->getLocale() == 'ar')
+
+
+            $(this).toggleClass('rtl');
+            $('.btn-rtl').hasClass('rtl')
+            $('.btn-rtl').text('LTR');
+            $('body').addClass('rtl');
+            $("html").attr("dir", "rtl");
+
+    @elseif (app()->getLocale() == 'en')
+            $(this).toggleClass('rtl');
+            $('.btn-rtl').removeClass('rtl')
+            $('.btn-rtl').text('RTL');
+            $('body').removeClass('rtl');
+            $("html").attr("dir", "");
+
+    @endif
+
 </script>
 </body>
 
