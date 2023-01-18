@@ -77,6 +77,29 @@
 
                         </ul>
                     </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="fa fa-circle"></i>
+                            <span>Product</span>
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </a>
+
+                        <ul class="sidebar-submenu">
+                            <li>
+                                <a href="{{route('admin.product.all')}}">
+                                    <i class="fa fa-circle"></i>List Product
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{route('admin.product.create')}}">
+                                    <i class="fa fa-circle"></i>Add Product
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </li>
 
                     <li>
                         <a href="product-review.html">

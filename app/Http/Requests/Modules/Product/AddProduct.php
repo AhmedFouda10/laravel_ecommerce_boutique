@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Modules\Brand;
+namespace App\Http\Requests\Modules\Product;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddBrand extends FormRequest
+class AddProduct extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,13 @@ class AddBrand extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|min:4|unique:brands,name',
-            'description'=>'required'
+            'name'=>'required|min:4|unique:products,name',
+            'description'=>'required',
+            'image' =>'nullable',
+            'price'=>'required|numeric',
+            'quantity' => 'required|digits_between:1,99999999999999',
+            'category_id'=>'required',
+            'brand_id'=>'required'
         ];
     }
 }

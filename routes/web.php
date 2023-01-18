@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,15 @@ Route::group(
                 Route::get('edit/{id}',[BrandController::class,'edit'])->name('edit');
                 Route::post('update/{id}',[BrandController::class,'update'])->name('update');
                 Route::get('delete/{id}',[BrandController::class,'delete'])->name('delete');
+            });
+
+            Route::prefix('product')->name('product')->as('product.')->group(function(){
+                Route::get('all',[ProductController::class,'index'])->name('all');
+                Route::get('create',[ProductController::class,'create'])->name('create');
+                Route::post('store',[ProductController::class,'store'])->name('store');
+                Route::get('edit/{id}',[ProductController::class,'edit'])->name('edit');
+                Route::post('update/{id}',[ProductController::class,'update'])->name('update');
+                Route::get('delete/{id}',[ProductController::class,'delete'])->name('delete');
             });
         });
     });

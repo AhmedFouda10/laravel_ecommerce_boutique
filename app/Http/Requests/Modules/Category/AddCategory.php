@@ -25,7 +25,7 @@ class AddCategory extends FormRequest
     {
         return [
             'name'=>'required|min:4|unique:categories,name',
-            'description'=>'nullable'
+            'description'=>'required'
         ];
     }
 }

@@ -11,6 +11,13 @@
 <!-- Sidebar jquery-->
 <script src="{{ asset('backend/assets/js/sidebar-menu.js') }}"></script>
 
+{{-- <!-- Dropzone js-->
+<script src="{{ asset('backend/assets/js/dropzone/dropzone.js') }}"></script>
+<script src="{{ asset('backend/assets/js/dropzone/dropzone-script.js') }}"></script>
+
+<!-- Table Row Delete js -->
+<script src="{{ asset('backend/assets/js/table-row-delete.js')}}"></script> --}}
+
 <!--chartist js-->
 <script src="{{ asset('backend/assets/js/chart/chartist/chartist.js') }}"></script>
 
