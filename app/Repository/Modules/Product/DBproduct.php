@@ -24,36 +24,60 @@ class DBproduct implements ProductInterface{
     public function store($request){
 
         $product=new Product();
-        // image
-        // $file=$request->image;
-        // $filename = time() . '.' . $file->getClientOriginalExtension();
-        // $file->move(public_path('backend/assets/images/products/'), $filename);
-        // $product->name=$filename;
+        // Uploade image
+        if($request->hasFile('image')){
+            $file=$request->image;
+            $extension=$file->getClientOriginalExtension();
+            $filename=time().'.'.$extension;
+            $file->move('backend/assets/images/products/',$filename);
+            $product->image=$filename;
+        }
 
         $product->name=$request->name;
         $product->description=$request->description;
         $product->price=$request->price;
-        $product->quentity=$request->quentity;
+        $product->quantity=$request->quantity;
         $product->category_id=$request->category_id;
         $product->brand_id=$request->brand_id;
         return $product->save();
     }
 
     public function edit($id){
-        return Product::find($id);
+        $categories=Category::all();
+        $brands=Brand::all();
+        $product=Product::find($id);
+        return $data=[
+            'categories'=>$categories,
+            'brands'=>$brands,
+            'product'=>$product
+        ];
     }
 
-    public function update($id,$inputs)
+    public function update($id,$request)
     {
         $product=Product::find($id);
         if(!$product){
             return redirect()->route('admin.product.all')->with('errors','product Is Not Found');
         }else{
-            $product->update($inputs);
-            return redirect()->route('admin.product.all')->with('success','product Updated Successfully');
-
+           // Uploade image
+        if($request->hasFile('image')){
+            $file=$request->image;
+            $extension=$file->getClientOriginalExtension();
+            $filename=time().'.'.$extension;
+            $file->move('backend/assets/images/products/',$filename);
+            $product->image=$filename;
         }
 
+        $product->name=$request->name;
+        $product->description=$request->description;
+        $product->price=$request->price;
+        $product->quantity=$request->quantity;
+        $product->category_id=$request->category_id;
+        $product->brand_id=$request->brand_id;
+        return $product->update();
+            
+
+        }
     }
 
     public function delete($id){

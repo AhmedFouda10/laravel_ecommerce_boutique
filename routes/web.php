@@ -38,8 +38,9 @@ Route::group(
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
         Route::middleware(['is_admin'])->prefix('admin')->name('admin')->as('admin.')->group(function(){
             Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-            Route::resource('roles', App\Http\Controllers\Admin\RoleController::class);
-            Route::resource('users', App\Http\Controllers\Admin\UserController::class);
+
+            Route::resource('roles', RoleController::class);
+            Route::resource('users', UserController::class);
 
             Route::prefix('category')->name('category')->as('category.')->group(function(){
                 Route::get('all',[CategoryController::class,'index'])->name('all');

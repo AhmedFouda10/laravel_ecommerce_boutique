@@ -26,8 +26,8 @@ class AddProduct extends FormRequest
         return [
             'name'=>'required|min:4|unique:products,name',
             'description'=>'required',
-            'image' =>'nullable',
-            'price'=>'required|numeric',
+            'image' =>'required',
+            'price'=>'required',
             'quantity' => 'required|digits_between:1,99999999999999',
             'category_id'=>'required',
             'brand_id'=>'required'

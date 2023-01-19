@@ -76,17 +76,19 @@ Products || Multikart Admin Panel
 
                                         <td data-field="name">{{$product->name}}</td>
 
-                                        <td data-field="price">{{$product->description}}</td>
+                                        <td data-field="price">{!! $product->description !!}</td>
 
                                         <td data-field="name">{{$product->price}}</td>
-                                        <td data-field="name">{{$product->quentity}}</td>
+                                        <td data-field="name">{{$product->quantity}}</td>
+                                        <td data-field="name">{{$product->Category->name}}</td>
+                                        <td data-field="name">{{$product->Brand->name}}</td>
 
                                         <td>
-                                            <a href="javascript:void(0)">
+                                            <a href="{{route('admin.product.edit',$product->id)}}">
                                                 <i class="fa fa-edit" title="Edit"></i>
                                             </a>
 
-                                            <a href="javascript:void(0)">
+                                            <a href="{{route('admin.product.delete',$product->id)}}">
                                                 <i class="fa fa-trash" title="Delete"></i>
                                             </a>
                                         </td>

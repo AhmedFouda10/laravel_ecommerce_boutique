@@ -79,21 +79,17 @@
     // )
 
     @if (app()->getLocale() == 'ar')
-
-
             $(this).toggleClass('rtl');
-            $('.btn-rtl').hasClass('rtl')
+            $('.btn-rtl').addClass('rtl')
             $('.btn-rtl').text('LTR');
             $('body').addClass('rtl');
             $("html").attr("dir", "rtl");
-
     @elseif (app()->getLocale() == 'en')
             $(this).toggleClass('rtl');
             $('.btn-rtl').removeClass('rtl')
             $('.btn-rtl').text('RTL');
             $('body').removeClass('rtl');
             $("html").attr("dir", "");
-
     @endif
 
 </script>

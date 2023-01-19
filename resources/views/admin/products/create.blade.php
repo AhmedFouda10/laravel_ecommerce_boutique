@@ -62,7 +62,7 @@
                                                         title="">Create New Product</a></li>
 
                                             </ul>
-                                            <form action="{{ route('admin.product.store') }}" method="post" class="dropzone digits" id="singleFileUpload">
+                                            <form action="{{ route('admin.product.store') }}" method="post" enctype="multipart/form-data" class="dropzone digits" id="singleFileUpload">
                                                 @csrf
 
 
@@ -88,7 +88,7 @@
                                                             </div>
 
                                                         </div>
-                                                        {{-- <div class="form-group row editor-label">
+                                                        <div class="form-group row editor-label">
                                                             <label class="col-xl-3 col-md-4"><span>*</span>
                                                                 Image</label>
                                                             <div class="col-xl-8 col-md-7">
@@ -97,7 +97,7 @@
                                                                 </div>
                                                             </div>
 
-                                                        </div> --}}
+                                                        </div>
                                                         <div class="form-group row">
                                                             <label for="validationCustom0"
                                                                 class="col-xl-3 col-md-4"><span>*</span>
@@ -113,7 +113,7 @@
                                                                 Quentity</label>
                                                             <div class="col-xl-8 col-md-7">
                                                                 <input class="form-control" id="validationCustom0"
-                                                                    type="number" name="quantity" required value="{{old('quentity')}}">
+                                                                    type="number" name="quantity" required value="{{old('quantity')}}">
                                                             </div>
                                                         </div>
 

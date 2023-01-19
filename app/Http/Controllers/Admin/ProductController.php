@@ -35,31 +35,41 @@ class ProductController extends Controller
 
         $validator=Validator::make($request->all(),$request->rules());
         if($validator->fails()){
-            return redirect()->route('admin.products.create')->withInput();
+            return redirect()->route('admin.product.create')->withInput();
         }else{
             $this->productInterface->store($request);
-            return redirect()->route('admin.products.all')->with('success','product created successfully');
+            return redirect()->route('admin.product.all')->with('success','product created successfully');
+
         }
 
     }
 
     public function edit($id){
-        $product=$this->productInterface->edit($id);
+        $data=$this->productInterface->edit($id);
+        $categories=$data['categories'];
+        $brands=$data['brands'];
+        $product=$data['product'];
         if(!$product){
-            return redirect()->route('admin.products.all')->with('errors','product Is Not Found');
+            return redirect()->route('admin.product.all')->with('errors','product Is Not Found');
         }
-        return view('admin.products.edit',compact('product'));
+        return view('admin.products.edit',compact('product','categories','brands'));
     }
 
     public function update($id,Request $request){
         $validator=Validator::make($request->all(),[
-            'name'=>'required|min:4|unique:products,name,'.$request->id,
-            'description'=>'required'
+            'name'=>'required|min:4|unique:products,name'.$id,
+            'description'=>'required',
+            'image' =>'required',
+            'price'=>'required',
+            'quantity' => 'required|digits_between:1,99999999999999',
+            'category_id'=>'required',
+            'brand_id'=>'required'
         ]);
         if($validator->fails()){
-            return redirect()->route('admin.products.edit')->withInput();
+            return redirect()->route('admin.product.edit')->withInput();
         }else{
-            return $this->productInterface->update($id,$request->all());
+            $this->productInterface->update($id,$request);
+            return redirect()->route('admin.product.all')->with('success','product Updated Successfully');
         }
 
     }
