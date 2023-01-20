@@ -20,12 +20,12 @@ Empty
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
-            <div class="pull-left">
-                <h2>Users Management</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('admin.users.create') }}"> Create New User</a>
-            </div>
+            <form class="form-inline search-form search-box">
+                <div class="form-group">
+                    <input class="form-control-plaintext" type="search" placeholder="Search..">
+                </div>
+            </form>
+                <a class="btn btn-primary mt-md-0 mt-2" href="{{ route('admin.users.create') }}"> Create New User</a>
         </div>
         <div class="card-body">
             @if ($message = Session::get('success'))
@@ -35,15 +35,16 @@ Empty
             @endif
 
 
-            <table class="table table-bordered table-striped text-center">
-                <thead class="table-dark">
+            <div class="table-responsive table-desi">
+                <table class="table list-digital all-package table-category " id="editableTable">
+                    <thead>
                     <tr>
-                        <th style="color: #fff">No</th>
-                        <th style="color: #fff">Name</th>
-                        <th style="color: #fff">Email</th>
-                        <th style="color: #fff">Status</th>
-                        <th style="color: #fff">Roles</th>
-                        <th style="color: #fff" width="280px">Action</th>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Roles</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,8 +72,8 @@ Empty
                   @endif
                 </td>
                 <td>
-                   <a class="btn btn-outline-info btn-sm p-2" href="{{ route('admin.users.show',$user->id) }}">Show</a>
-                   <a class="btn btn-outline-success btn-sm p-2" href="{{ route('admin.users.edit',$user->id) }}">Edit</a>
+                   <a class="btn btn-outline-info btn-sm p-2 edit_show" href="{{ route('admin.users.show',$user->id) }}">Show</a>
+                   <a class="btn btn-outline-success btn-sm p-2 edit_show" href="{{ route('admin.users.edit',$user->id) }}">Edit</a>
                     {!! Form::open(['method' => 'DELETE','route' => ['admin.users.destroy', $user->id],'style'=>'display:inline']) !!}
                         {!! Form::submit('Delete', ['class' => 'btn btn-outline-primary btn-sm p-2']) !!}
                     {!! Form::close() !!}

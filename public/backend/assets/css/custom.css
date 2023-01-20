@@ -1,4 +1,4 @@
-.active{
+/* .active{
     background: #fff;
     background: -webkit-gradient(linear, right top, left top, from(rgba(255,255,255,0.2)), color-stop(80%, rgba(255,255,255,0)));
     background: linear-gradient(-90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 80%);
@@ -9,4 +9,10 @@
     transition: .3s;
     border-radius: 5px;
     position: relative;
+} */
+
+.edit_show:hover{
+    color: #fff !important;
+    background-color: #ff1d08 !important;
+    border-color: #ff1d08 !important;
 }

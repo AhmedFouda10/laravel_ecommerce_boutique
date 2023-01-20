@@ -29,5 +29,5 @@
 
 <!-- App css-->
 <link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/style.css')}}">
-{{-- <link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/custome.css')}}"> --}}
+<link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/custom.css')}}">
 </head>

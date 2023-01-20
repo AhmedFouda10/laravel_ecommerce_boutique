@@ -20,12 +20,12 @@ Empty
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
-            <div class="pull-left">
-                <h2>Role Management</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('admin.roles.create') }}"> Create New Role</a>
-            </div>
+            <form class="form-inline search-form search-box">
+                <div class="form-group">
+                    <input class="form-control-plaintext" type="search" placeholder="Search..">
+                </div>
+            </form>
+                <a class="btn btn-primary mt-md-0 mt-2" href="{{ route('admin.roles.create') }}"> Create New Role</a>
         </div>
         <div class="card-body">
             @if ($message = Session::get('success'))
@@ -35,12 +35,13 @@ Empty
             @endif
 
 
-            <table class="table table-bordered table-striped text-center">
-                <thead class="table-dark">
+            <div class="table-responsive table-desi">
+                <table class="table list-digital all-package table-category " id="editableTable">
+                    <thead>
                     <tr>
-                        <th style="color: #fff">No</th>
-                        <th style="color: #fff">Name</th>
-                        <th style="color: #fff" width="280px">Action</th>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,9 +50,9 @@ Empty
                             <td>{{ ++$i }}</td>
                             <td>{{ $role->name }}</td>
                             <td>
-                                <a class="btn btn-outline-info btn-sm p-2" href="{{ route('admin.roles.show', $role->id) }}">Show</a>
+                                <a class="btn btn-outline-info btn-sm p-2 edit_show" href="{{ route('admin.roles.show', $role->id) }}">Show</a>
                                 @can('role-edit')
-                                    <a class="btn btn-outline-success btn-sm p-2"
+                                    <a class="btn btn-outline-success btn-sm p-2 edit_show"
                                         href="{{ route('admin.roles.edit', $role->id) }}">Edit</a>
                                 @endcan
                                 @can('role-delete')
@@ -59,11 +60,13 @@ Empty
                                     {!! Form::submit('Delete', ['class' => 'btn btn-outline-primary btn-sm p-2']) !!}
                                     {!! Form::close() !!}
                                 @endcan
+                                
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+            </div>
 
         </div>
         {!! $roles->render() !!}

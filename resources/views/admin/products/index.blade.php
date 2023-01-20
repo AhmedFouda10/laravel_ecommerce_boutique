@@ -79,7 +79,7 @@ Empty
                                 </a>
 
                                 <a href="{{route('admin.product.delete',$product->id)}}">
-                                    <i class="fa fa-trash fs-2x" title="Delete"></i>
+                                    <i class="fa fa-trash" title="Delete"></i>
                                 </a>
                             </td>
                         </tr>

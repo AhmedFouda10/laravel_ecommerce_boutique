@@ -67,6 +67,7 @@
 
 <!--script admin-->
 <script src="{{ asset('backend/assets/js/admin-script.js') }}"></script>
+
 </body>
 
 </html>
