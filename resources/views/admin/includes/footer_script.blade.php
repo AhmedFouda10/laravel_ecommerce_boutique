@@ -1,4 +1,4 @@
-<!-- latest jquery-->
+    <!-- latest jquery-->
 <script src="{{ asset('backend/assets/js/jquery-3.3.1.min.js') }}"></script>
 
 <!-- Bootstrap js-->
@@ -45,7 +45,7 @@
 <script src="{{ asset('backend/assets/js/chart/peity-chart/peity.jquery.js') }}"></script>
 
 <!-- Apex Chart Js -->
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="{{ asset('backend/assets/js/apexcharts.js') }}"></script>
 
 <!--sparkline chart js-->
 <script src="{{ asset('backend/assets/js/chart/sparkline/sparkline.js') }}"></script>
@@ -67,32 +67,6 @@
 
 <!--script admin-->
 <script src="{{ asset('backend/assets/js/admin-script.js') }}"></script>
-
-<script>
-    // $('<ul class="custom-theme"><li class="demo-li"><a href="../front-end/index.html" target="_blank">Front end</a></li><li class="btn-rtl">RTL</li><li class="btn-dark-setting">Dark</li></ul>').appendTo($('body'));
-    // $('body').appendTo(
-    //     "<ui class='custom-theme'>"
-    //     "<li class='btn-rtl'>"
-    //     'RTL'
-    //     "</li>"
-    //     "</ui>"
-    // )
-
-    @if (app()->getLocale() == 'ar')
-            $(this).toggleClass('rtl');
-            $('.btn-rtl').addClass('rtl')
-            $('.btn-rtl').text('LTR');
-            $('body').addClass('rtl');
-            $("html").attr("dir", "rtl");
-    @elseif (app()->getLocale() == 'en')
-            $(this).toggleClass('rtl');
-            $('.btn-rtl').removeClass('rtl')
-            $('.btn-rtl').text('RTL');
-            $('body').removeClass('rtl');
-            $("html").attr("dir", "");
-    @endif
-
-</script>
 </body>
 
 </html>

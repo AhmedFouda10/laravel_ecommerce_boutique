@@ -8,5 +8,5 @@ interface ProductInterface{
     public function store($inputs);
     public function edit($id);
     public function update($id,$inputs);
-    public function delete($id);
+    public function delete($id,$inputs);
 }

@@ -57,9 +57,9 @@ class ProductController extends Controller
 
     public function update($id,Request $request){
         $validator=Validator::make($request->all(),[
-            'name'=>'required|min:4|unique:products,name'.$id,
+            'name'=>'required|min:4|unique:products,name,'.$id,
             'description'=>'required',
-            'image' =>'required',
+            'image' =>'nullable',
             'price'=>'required',
             'quantity' => 'required|digits_between:1,99999999999999',
             'category_id'=>'required',
@@ -74,7 +74,7 @@ class ProductController extends Controller
 
     }
 
-    public function delete($id){
-        return $this->productInterface->delete($id);
+    public function delete($id,Request $request){
+        return $this->productInterface->delete($id,$request);
     }
 }

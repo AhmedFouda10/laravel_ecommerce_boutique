@@ -1,0 +1,12 @@
+.active{
+    background: #fff;
+    background: -webkit-gradient(linear, right top, left top, from(rgba(255,255,255,0.2)), color-stop(80%, rgba(255,255,255,0)));
+    background: linear-gradient(-90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 80%);
+
+    color: #fff;
+   
+    -webkit-transition: .3s;
+    transition: .3s;
+    border-radius: 5px;
+    position: relative;
+}

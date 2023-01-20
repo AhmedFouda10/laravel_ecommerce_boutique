@@ -18,8 +18,8 @@
             </div>
         </div>
         <ul class="sidebar-menu">
-            <li>
-                <a class="sidebar-header" href="{{route('admin.dashboard')}}">
+            <li class="{{Request::is('admin.dashboard') ? 'active' : ''}}">
+                <a class="sidebar-header {{Request::is('admin.dashboard') ? 'active' : ''}}" href="{{route('admin.dashboard')}}">
                     <i data-feather="home"></i>
                     <span>Dashboard</span>
                 </a>
@@ -41,8 +41,8 @@
                         </a>
 
                         <ul class="sidebar-submenu">
-                            <li>
-                                <a href="{{route('admin.category.all')}}">
+                            <li class="{{Request::routeIs('admin.category.all') ? 'active' : ''}}">
+                                <a href="{{route('admin.category.all')}}" class="{{Request::routeIs('admin.category.all') ? 'active' : ''}}">
                                     <i class="fa fa-circle"></i>List Category
                                 </a>
                             </li>

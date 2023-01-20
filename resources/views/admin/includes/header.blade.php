@@ -4,7 +4,7 @@
             <div class="logo-wrapper">
                 <a href="index.html">
                     <img class="blur-up lazyloaded d-block d-lg-none"
-                        src="assets/images/dashboard/multikart-logo-black.png" alt="">
+                        src="images/dashboard/multikart-logo-black.png" alt="">
                 </a>
             </div>
         </div>
@@ -36,18 +36,16 @@
                 </li>
                 <li class="onhover-dropdown">
                     <a class="txt-dark" href="javascript:void(0)">
-                        <h6 class="text-uppercase">{{app()->getLocale()}}</h6>
+                        <h6 class="fw-bold" style="font-size:.9rem;text-transform: uppercase;">{{app()->getLocale()}}</h6>
                     </a>
                     <ul class="language-dropdown onhover-show-div p-20">
-                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                            <li class="w-100 d-block text-center fw-bold">
-                                <a  style="color: #FF4C3B" class="@if (app()->getLocale()=='ar')
-                                    rtl
-                                @endif" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                    {{ $properties['native'] }}
-                                </a>
-                            </li>
-                        @endforeach
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <li class="d-block text-center">
+                                    <a class="fw-bold" style="color: #FF4C3B;font-size:1rem" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                        {{ $properties['native'] }}
+                                    </a>
+                                </li>
+                            @endforeach
                     </ul>
                 </li>
                 <li class="onhover-dropdown">
