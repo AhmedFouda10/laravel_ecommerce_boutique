@@ -36,7 +36,7 @@ Route::group(
 
 
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-        Route::middleware(['is_admin'])->prefix('admin')->name('admin')->as('admin.')->group(function(){
+        Route::middleware(['is_admin','auth'])->prefix('admin')->name('admin')->as('admin.')->group(function(){
             Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
             Route::resource('roles', RoleController::class);
