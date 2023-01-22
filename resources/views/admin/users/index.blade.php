@@ -55,7 +55,7 @@ Empty
                 <td>{{ $user->email }}</td>
                 <td>
                     @if ($user->status == 'مفعل')
-                        <span class="label badge badge-success">
+                        <span class="label badge" style="background-color: #ff1d08">
                             {{ $user->status }}
                         </span>
                     @else
@@ -67,7 +67,7 @@ Empty
                 <td>
                   @if(!empty($user->getRoleNames()))
                     @foreach($user->getRoleNames() as $v)
-                       <label class="badge badge-success">{{ $v }}</label>
+                       <label class="badge " style="background-color: #ff1d08">{{ $v }}</label>
                     @endforeach
                   @endif
                 </td>
