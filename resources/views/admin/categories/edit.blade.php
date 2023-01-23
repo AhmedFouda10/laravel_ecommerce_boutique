@@ -46,7 +46,7 @@ Empty
                                         title="">Edit Category</a></li>
 
                             </ul>
-                            <form action="{{ route('admin.category.update',$category->id) }}" method="post">
+                            <form action="{{ route('admin.category.update',$category->id) }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade active show" id="general" role="tabpanel"
@@ -59,9 +59,19 @@ Empty
                                                 <input class="form-control" id="validationCustom0"
                                                     type="text" name="name" required value="{{(old('name') ? old('name') : $category->name)}}">
                                             </div>
-                                            {{-- @error('name')
-                                                <div class="alert alert-danger">{{ $message }}</div>
-                                            @enderror --}}
+                                        </div>
+                                        <div class="form-group row editor-label">
+                                            <label class="col-xl-3 col-md-4"><span>*</span>
+                                                Cover</label>
+                                            <div class="col-xl-5 col-md-4">
+                                                <div class="editor-space">
+                                                    <input type="file" class="form-control" name="image" id="" value="{{old('image')}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4 col-md-3">
+                                                <img src="{{asset('backend/assets/images/categories/'.$category->image)}}" style="height: 100px;width:100px" alt="">
+                                            </div>
+
                                         </div>
                                         <div class="form-group row editor-label">
                                             <label class="col-xl-3 col-md-4"><span>*</span>

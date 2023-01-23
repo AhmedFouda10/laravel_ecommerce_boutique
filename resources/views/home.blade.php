@@ -3,8 +3,9 @@
 @section('content')
 <!-- HERO SECTION-->
 <div class="container">
-    <section class="hero pb-3 bg-cover bg-center d-flex align-items-center" style="background: url(img/hero-banner-alt.jpg')}})">
-      <div class="container py-5">
+    <section class="hero pb-3 bg-cover bg-center d-flex align-items-center position-relative">
+        <img class="position-absolute h-100 w-100" src="{{asset('frontend/assets/img/hero-banner-alt.jpg')}}" alt="">
+        <div class="container py-5">
         <div class="row px-4 px-lg-5">
           <div class="col-lg-6">
             <p class="text-muted small text-uppercase mb-2">New Inspiration 2020</p>
@@ -20,9 +21,9 @@
         <h2 class="h5 text-uppercase mb-4">Browse our categories</h2>
       </header>
       <div class="row">
-        <div class="col-md-4 mb-4 mb-md-0"><a class="category-item" href="shop.html"><img class="img-fluid" src="{{asset('frontend/assets/img/cat-img-1.jpg')}}" alt=""><strong class="category-item-title">Clothes</strong></a></div>
-        <div class="col-md-4 mb-4 mb-md-0"><a class="category-item mb-4" href="shop.html"><img class="img-fluid" src="{{asset('frontend/assets/img/cat-img-2.jpg')}}" alt=""><strong class="category-item-title">Shoes</strong></a><a class="category-item" href="shop.html"><img class="img-fluid" src="{{asset('frontend/assets/img/cat-img-3.jpg')}}" alt=""><strong class="category-item-title">Watches</strong></a></div>
-        <div class="col-md-4"><a class="category-item" href="shop.html"><img class="img-fluid" src="{{asset('frontend/assets/img/cat-img-4.jpg')}}" alt=""><strong class="category-item-title">Electronics</strong></a></div>
+        @foreach ($categories as $category)
+            <div class="col-md-4 mb-4 mb-md-0"><a class="category-item" href="shop.html"><img class="img-fluid" src="{{asset('backend/assets/images/categories/'.$category->image)}}" alt=""><strong class="category-item-title">{{$category->name}}</strong></a></div>
+        @endforeach
       </div>
     </section>
     <!-- TRENDING PRODUCTS-->
@@ -33,141 +34,25 @@
       </header>
       <div class="row">
         <!-- PRODUCT-->
+        @foreach ($products as $product)
         <div class="col-xl-3 col-lg-4 col-sm-6">
-          <div class="product text-center">
-            <div class="position-relative mb-3">
-              <div class="badge text-white badge-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('frontend/assets/img/product-1.jpg')}}" alt="..."></a>
-              <div class="product-overlay">
-                <ul class="mb-0 list-inline">
-                  <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                  <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
-                  <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                </ul>
+            <div class="product text-center">
+              <div class="position-relative mb-3">
+                <div class="badge text-white badge-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('backend/assets/images/products/'.$product->image)}}" alt="..."></a>
+                <div class="product-overlay">
+                  <ul class="mb-0 list-inline">
+                    <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
+                    <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
+                    <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                  </ul>
+                </div>
               </div>
+              <h6> <a class="reset-anchor" href="detail.html">{{$product->name}}</a></h6>
+              <p class="small text-muted">${{$product->price}}</p>
             </div>
-            <h6> <a class="reset-anchor" href="detail.html">Kui Ye Chen’s AirPods</a></h6>
-            <p class="small text-muted">$250</p>
           </div>
-        </div>
-        <!-- PRODUCT-->
-        <div class="col-xl-3 col-lg-4 col-sm-6">
-          <div class="product text-center">
-            <div class="position-relative mb-3">
-              <div class="badge text-white badge-primary">Sale</div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('frontend/assets/img/product-2.jpg')}}" alt="..."></a>
-              <div class="product-overlay">
-                <ul class="mb-0 list-inline">
-                  <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                  <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
-                  <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <h6> <a class="reset-anchor" href="detail.html">Air Jordan 12 gym red</a></h6>
-            <p class="small text-muted">$300</p>
-          </div>
-        </div>
-        <!-- PRODUCT-->
-        <div class="col-xl-3 col-lg-4 col-sm-6">
-          <div class="product text-center">
-            <div class="position-relative mb-3">
-              <div class="badge text-white badge-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('frontend/assets/img/product-3.jpg')}}" alt="..."></a>
-              <div class="product-overlay">
-                <ul class="mb-0 list-inline">
-                  <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                  <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
-                  <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <h6> <a class="reset-anchor" href="detail.html">Cyan cotton t-shirt</a></h6>
-            <p class="small text-muted">$25</p>
-          </div>
-        </div>
-        <!-- PRODUCT-->
-        <div class="col-xl-3 col-lg-4 col-sm-6">
-          <div class="product text-center">
-            <div class="position-relative mb-3">
-              <div class="badge text-white badge-info">New</div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('frontend/assets/img/product-4.jpg')}}" alt="..."></a>
-              <div class="product-overlay">
-                <ul class="mb-0 list-inline">
-                  <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                  <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
-                  <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <h6> <a class="reset-anchor" href="detail.html">Timex Unisex Originals</a></h6>
-            <p class="small text-muted">$351</p>
-          </div>
-        </div>
-        <!-- PRODUCT-->
-        <div class="col-xl-3 col-lg-4 col-sm-6">
-          <div class="product text-center">
-            <div class="position-relative mb-3">
-              <div class="badge text-white badge-danger">Sold</div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('frontend/assets/img/product-5.jpg')}}" alt="..."></a>
-              <div class="product-overlay">
-                <ul class="mb-0 list-inline">
-                  <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                  <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
-                  <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <h6> <a class="reset-anchor" href="detail.html">Red digital smartwatch</a></h6>
-            <p class="small text-muted">$250</p>
-          </div>
-        </div>
-        <!-- PRODUCT-->
-        <div class="col-xl-3 col-lg-4 col-sm-6">
-          <div class="product text-center">
-            <div class="position-relative mb-3">
-              <div class="badge text-white badge-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('frontend/assets/img/product-6.jpg')}}" alt="..."></a>
-              <div class="product-overlay">
-                <ul class="mb-0 list-inline">
-                  <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                  <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
-                  <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <h6> <a class="reset-anchor" href="detail.html">Nike air max 95</a></h6>
-            <p class="small text-muted">$300</p>
-          </div>
-        </div>
-        <!-- PRODUCT-->
-        <div class="col-xl-3 col-lg-4 col-sm-6">
-          <div class="product text-center">
-            <div class="position-relative mb-3">
-              <div class="badge text-white badge-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('frontend/assets/img/product-7.jpg')}}" alt="..."></a>
-              <div class="product-overlay">
-                <ul class="mb-0 list-inline">
-                  <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                  <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
-                  <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <h6> <a class="reset-anchor" href="detail.html">Joemalone Women prefume</a></h6>
-            <p class="small text-muted">$25</p>
-          </div>
-        </div>
-        <!-- PRODUCT-->
-        <div class="col-xl-3 col-lg-4 col-sm-6">
-          <div class="product text-center">
-            <div class="position-relative mb-3">
-              <div class="badge text-white badge-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="{{asset('frontend/assets/img/product-8.jpg')}}" alt="..."></a>
-              <div class="product-overlay">
-                <ul class="mb-0 list-inline">
-                  <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                  <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
-                  <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <h6> <a class="reset-anchor" href="detail.html">Apple Watch</a></h6>
-            <p class="small text-muted">$351</p>
-          </div>
-        </div>
+        @endforeach
+
       </div>
     </section>
     <!-- SERVICES-->

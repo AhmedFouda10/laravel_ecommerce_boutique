@@ -9,7 +9,7 @@ use App\Repository\Modules\Brand\BrandInterface;
 class DBbrand implements BrandInterface{
     public function all()
     {
-        return Brand::orderBy('id','DESC')->get();;
+        return Brand::orderBy('id','DESC')->get();
     }
 
 

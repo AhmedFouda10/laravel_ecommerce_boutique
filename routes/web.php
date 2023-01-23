@@ -4,9 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Website\HomeController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Website\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,14 +30,26 @@ Route::group(
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){
 
-        Route::get('/', function () {
-            return view('auth.login');
+        //  routes website store
+        Route::middleware(['guest'])->group(function(){
+            Route::get('/', [HomeController::class, 'index'])->name('home');
         });
+
 
         Auth::routes();
 
 
-        Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+        //  routes website store
+        Route::middleware(['auth'])->group(function(){
+            Route::get('/home', [HomeController::class, 'index'])->name('home');
+            Route::get('/shop', [ShopController::class, 'index'])->name('shop');
+            Route::get('/shop/{name}', [ShopController::class, 'ProductSelected'])->name('shop.name');
+        });
+
+
+
+        //  routes dashboard
         Route::middleware(['is_admin','auth'])->prefix('admin')->name('admin')->as('admin.')->group(function(){
             Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

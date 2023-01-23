@@ -94,12 +94,10 @@ class DBproduct implements ProductInterface
         if (!$product) {
             return redirect()->route('admin.product.all')->with('errors', 'product Is Not Found');
         } else {
-            if ($request->hasFile('image')) {
                 $path = public_path('backend/assets/images/products/' . $product->image);
                 if (File::exists($path)) {
                     File::delete($path);
                 }
-            }
             $product->delete();
             return redirect()->route('admin.product.all')->with('success', 'product Deleted Successfully');
 

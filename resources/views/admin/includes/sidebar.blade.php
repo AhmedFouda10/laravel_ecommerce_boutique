@@ -13,8 +13,8 @@
         <div class="sidebar-user">
             <img class="img-60" src="{{asset('backend/assets/images/dashboard/user3.jpg')}}" alt="#">
             <div>
-                <h6 class="f-14">JOHN</h6>
-                <p>general manager.</p>
+                <h6 class="f-14">{{Auth::user()->name}}</h6>
+                <p>{{Auth::user()->status}}.</p>
             </div>
         </div>
         <ul class="sidebar-menu">

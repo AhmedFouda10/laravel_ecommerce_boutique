@@ -31,7 +31,7 @@ class CategoryController extends Controller
         if($validator->fails()){
             return redirect()->route('admin.category.create')->withInput();
         }else{
-            $this->categoryInterface->store($request->all());
+            $this->categoryInterface->store($request);
             return redirect()->route('admin.category.all')->with('success','Category created successfully');
         }
 
@@ -48,19 +48,21 @@ class CategoryController extends Controller
 
     public function update($id,Request $request){
         $validator=Validator::make($request->all(),[
-            'name'=>'required|min:4|unique:categories,name,'.$request->id,
+            'name'=>'required|min:4|unique:categories,name,'.$id,
+            'image' => 'nullable|mimes:jpeg,png,jpg',
             'description'=>'required'
         ]);
         if($validator->fails()){
             return redirect()->route('admin.category.edit')->withInput();
         }else{
-            return $this->categoryInterface->update($id,$request->all());
+            $this->categoryInterface->update($id,$request);
+            return redirect()->route('admin.category.all')->with('success','Category Updated Successfully');
         }
 
     }
 
-    public function delete($id){
-        return $this->categoryInterface->delete($id);
+    public function delete($id,Request $request){
+        return $this->categoryInterface->delete($id,$request);
     }
 
 

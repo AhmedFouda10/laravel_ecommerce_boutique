@@ -9,6 +9,8 @@ use App\Repository\Modules\Category\DBcategory;
 use App\Repository\Modules\Category\CategoryInterface;
 use App\Repository\Modules\Product\DBproduct;
 use App\Repository\Modules\Product\ProductInterface;
+use App\Repository\Modules\Website\DBWebsite;
+use App\Repository\Modules\Website\WebsiteInterface;
 
 class RepositoryServiesProvider extends ServiceProvider
 {
@@ -22,6 +24,7 @@ class RepositoryServiesProvider extends ServiceProvider
         $this->app->bind(CategoryInterface::class,DBcategory::class);
         $this->app->bind(BrandInterface::class,DBbrand::class);
         $this->app->bind(ProductInterface::class,DBproduct::class);
+        $this->app->bind(WebsiteInterface::class,DBWebsite::class);
     }
 
     /**

@@ -40,6 +40,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Image</th>
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th width="280px">Action</th>
@@ -49,15 +50,16 @@
                             @foreach ($categories as $category)
                                 <tr>
                                     <td>{{ $category->id }}</td>
+                                    <td><img src="{{asset('backend/assets/images/categories/'.$category->image)}}" alt=""></td>
                                     <td>{{ $category->name }}</td>
                                     <td>{!! $category->description !!}</td>
                                     <td>
-                                        
-                                    
+
+
                                             <a href="{{ route('admin.category.edit', $category->id) }}">
                                                 <i class="fa fa-edit" title="Edit"></i>
                                             </a>
-            
+
                                             <a href="{{ route('admin.category.delete', $category->id) }}">
                                                 <i class="fa fa-trash" title="Delete"></i>
                                             </a>
