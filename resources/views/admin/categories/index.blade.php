@@ -1,19 +1,19 @@
 @extends('layouts.admin')
 @section('title')
-    Empty - فارغه
+    {{ trans('main_trans.Category') }}
 @endsection
 
 
 @section('content-title')
-    Empty
+{{ trans('main_trans.Category') }}
 @endsection
 
 @section('content-description')
-    Empty Description
+{{ trans('main_trans.List Category') }}
 @endsection
 
 @section('page-title')
-    Empty
+{{ trans('main_trans.Category') }}
 @endsection
 
 @section('content')
@@ -25,7 +25,9 @@
                         <input class="form-control-plaintext" type="search" placeholder="Search..">
                     </div>
                 </form>
-                    <a class="btn btn-primary mt-md-0 mt-2" href="{{ route('admin.category.create') }}"> Create New Category</a>
+                @can('create category')
+                <a class="btn btn-primary mt-md-0 mt-2" href="{{ route('admin.category.create') }}">{{ trans('main_trans.Create New Category') }}</a>
+                @endcan
             </div>
             <div class="card-body">
                 @if ($message = Session::get('success'))
@@ -39,11 +41,11 @@
                     <table class="table list-digital all-package table-category " id="editableTable">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Image</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th width="280px">Action</th>
+                                <th>{{ trans('main_trans.No') }}</th>
+                                <th>{{ trans('main_trans.Image') }}</th>
+                                <th>{{ trans('main_trans.Name') }}</th>
+                                <th>{{ trans('main_trans.Description') }}</th>
+                                <th>{{ trans('main_trans.Action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,23 +57,30 @@
                                     <td>{!! $category->description !!}</td>
                                     <td>
 
-
+                                        @can('edit category')
+                                        <a href="{{ route('admin.category.delete', $category->id) }}">
+                                            <i class="fa fa-trash" title="Delete"></i>
+                                        </a>
+                                        @endcan
                                             <a href="{{ route('admin.category.edit', $category->id) }}">
                                                 <i class="fa fa-edit" title="Edit"></i>
                                             </a>
-
+                                            @can('delete category')
                                             <a href="{{ route('admin.category.delete', $category->id) }}">
                                                 <i class="fa fa-trash" title="Delete"></i>
                                             </a>
+                                            @endcan
+
                                         </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    {{-- {!! $categories->links('pagination::bootstrap-5') !!} --}}
                 </div>
 
             </div>
-            {{-- {!! $categories->render() !!} --}}
+
         </div>
     </div>
 @endsection

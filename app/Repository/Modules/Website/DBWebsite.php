@@ -21,7 +21,7 @@ class DBWebsite implements WebsiteInterface{
 
     public function shop(){
         $categories= Category::all();
-        $products=Product::all();
+        $products=Product::paginate(9);
         return $data=[
             'categories'=>$categories,
             'products'=>$products,

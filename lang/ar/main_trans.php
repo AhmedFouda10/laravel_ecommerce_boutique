@@ -1,0 +1,28 @@
+<?php
+
+return [
+"Dashboard"=>"لوحة تحكم",
+"Departments"=>"الأقسام",
+"Category"=>"قسم",
+"Brand"=>"مصنف(برند)",
+"Product"=>"منتج",
+"List Category"=>"قائمه الأقسام",
+"Add Category"=>"إضافة قسم",
+"Edit Category"=>"تعديل قسم",
+"List Brand"=>"قائمه البرندات",
+"Add Brand"=>"إضافة برند",
+"Edit Brand"=>"تعديل برند",
+"List Product"=>"قائمه المنتجات",
+"Add Product"=>"إضافة منتج",
+"Manage Users"=>"إداره مستخدمين",
+"Manage Role"=>"إداره الصلاحيات",
+"Create New Category"=>"إنشاء قسم جديد",
+"No"=>"رقم",
+"Image"=>"صوره",
+"Name"=>"الأسم",
+"Description"=>"الوصف",
+"Action"=>"تحكم",
+"Back"=>"عوده",
+"Save"=>"حفظ",
+"Update"=>"تعديل",
+];

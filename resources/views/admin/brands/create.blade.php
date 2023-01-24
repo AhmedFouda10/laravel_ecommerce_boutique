@@ -1,19 +1,19 @@
 @extends('layouts.admin')
 @section('title')
-Empty - فارغه
+{{ trans('main_trans.Brand') }}
 @endsection
 
 
 @section('content-title')
-Empty
+{{ trans('main_trans.Brand') }}
 @endsection
 
 @section('content-description')
-Empty Description
+{{ trans('main_trans.Add Brand') }}
 @endsection
 
 @section('page-title')
-Empty
+{{ trans('main_trans.Brand') }}
 @endsection
 
 @section('content')
@@ -21,7 +21,7 @@ Empty
     <div class="card">
         <div class="card-header">
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('admin.brand.all') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('admin.brand.all') }}"> {{ trans('main_trans.Back') }}</a>
             </div>
         </div>
         <div class="card-body">
@@ -43,7 +43,7 @@ Empty
                                 <li class="nav-item"><a class="nav-link active show" id="general-tab"
                                         data-bs-toggle="tab" href="#general" role="tab"
                                         aria-controls="general" aria-selected="true" data-original-title=""
-                                        title="">Create New Brand</a></li>
+                                        title="">{{ trans('main_trans.Add Brand') }}</a></li>
 
                             </ul>
                             <form action="{{ route('admin.brand.store') }}" method="post">
@@ -54,18 +54,16 @@ Empty
                                         <div class="form-group row">
                                             <label for="validationCustom0"
                                                 class="col-xl-3 col-md-4"><span>*</span>
-                                                Name</label>
+                                                {{ trans('main_trans.Name') }}</label>
                                             <div class="col-xl-8 col-md-7">
                                                 <input class="form-control" id="validationCustom0"
                                                     type="text" name="name" required value="{{old('name')}}">
                                             </div>
-                                            {{-- @error('name')
-                                                <div class="alert alert-danger">{{ $message }}</div>
-                                            @enderror --}}
+
                                         </div>
                                         <div class="form-group row editor-label">
                                             <label class="col-xl-3 col-md-4"><span>*</span>
-                                                Description</label>
+                                                {{ trans('main_trans.Description') }}</label>
                                             <div class="col-xl-8 col-md-7">
                                                 <div class="editor-space">
                                                     <textarea id="editor1" cols="30" rows="10" name="description" ></textarea>
@@ -79,7 +77,7 @@ Empty
 
                                 </div>
                                 <div class="pull-right">
-                                    <button type="submit" class="btn btn-primary">Save</button>
+                                    <button type="submit" class="btn btn-primary">{{ trans('main_trans.Save') }}</button>
                                 </div>
                             </form>
                         </div>

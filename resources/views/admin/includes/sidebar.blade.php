@@ -18,111 +18,134 @@
             </div>
         </div>
         <ul class="sidebar-menu">
+            @can('dashboard')
             <li>
                 <a class="sidebar-header" href="{{route('admin.dashboard')}}">
                     <i data-feather="home"></i>
-                    <span>Dashboard</span>
+                    <span>{{ trans('main_trans.Dashboard') }}</span>
                 </a>
             </li>
+            @endcan
+
+            @can('departments')
 
             <li>
                 <a class="sidebar-header" href="javascript:void(0)">
                     <i data-feather="box"></i>
-                    <span>Departments</span>
+                    <span>{{ trans('main_trans.Departments') }}</span>
                     <i class="fa fa-angle-right pull-right"></i>
                 </a>
 
                 <ul class="sidebar-submenu">
+                    @can('category')
+
                     <li>
                         <a href="javascript:void(0)">
                             <i class="fa fa-circle"></i>
-                            <span>Category</span>
+                            <span>{{ trans('main_trans.Category') }}</span>
                             <i class="fa fa-angle-right pull-right"></i>
                         </a>
 
                         <ul class="sidebar-submenu">
+                            @can('list category')
                             <li>
                                 <a href="{{route('admin.category.all')}}">
-                                    <i class="fa fa-circle"></i>List Category
+                                    <i class="fa fa-circle"></i>{{ trans('main_trans.List Category') }}
                                 </a>
                             </li>
+                            @endcan
+
+                            @can('add category')
                             <li>
                                 <a href="{{route('admin.category.create')}}">
-                                    <i class="fa fa-circle"></i>Add Category
+                                    <i class="fa fa-circle"></i>{{ trans('main_trans.Add Category') }}
                                 </a>
                             </li>
+                            @endcan
+
                         </ul>
                     </li>
+                    @endcan
 
+                    @can('brand')
                     <li>
                         <a href="javascript:void(0)">
                             <i class="fa fa-circle"></i>
-                            <span>Brand</span>
+                            <span>{{ trans('main_trans.Brand') }}</span>
                             <i class="fa fa-angle-right pull-right"></i>
                         </a>
 
                         <ul class="sidebar-submenu">
+                            @can('list brand')
                             <li>
                                 <a href="{{route('admin.brand.all')}}">
-                                    <i class="fa fa-circle"></i>List Brand
+                                    <i class="fa fa-circle"></i>{{ trans('main_trans.List Brand') }}
                                 </a>
                             </li>
+                            @endcan
 
+                            @can('add brand')
                             <li>
                                 <a href="{{route('admin.brand.create')}}">
-                                    <i class="fa fa-circle"></i>Add Brand
+                                    <i class="fa fa-circle"></i>{{ trans('main_trans.Add Brand') }}
                                 </a>
                             </li>
+                            @endcan
+
 
 
                         </ul>
                     </li>
+                    @endcan
+
+                    @can('product')
                     <li>
                         <a href="javascript:void(0)">
                             <i class="fa fa-circle"></i>
-                            <span>Product</span>
+                            <span>{{ trans('main_trans.Product') }}</span>
                             <i class="fa fa-angle-right pull-right"></i>
                         </a>
 
                         <ul class="sidebar-submenu">
+                            @can('list product')
                             <li>
                                 <a href="{{route('admin.product.all')}}">
-                                    <i class="fa fa-circle"></i>List Product
+                                    <i class="fa fa-circle"></i>{{ trans('main_trans.List Product') }}
                                 </a>
                             </li>
+                            @endcan
 
+                            @can('add product')
                             <li>
                                 <a href="{{route('admin.product.create')}}">
-                                    <i class="fa fa-circle"></i>Add Product
+                                    <i class="fa fa-circle"></i>{{ trans('main_trans.Add Product') }}
                                 </a>
                             </li>
-
-
+                            @endcan
                         </ul>
                     </li>
-
-                    <li>
-                        <a href="product-review.html">
-                            <i class="fa fa-circle"></i>
-                            <span>product Review</span>
-                        </a>
-                    </li>
+                    @endcan
                 </ul>
             </li>
+            @endcan
+
+            @can('list user')
             <li>
                 <a class="sidebar-header" href="{{ route('admin.users.index') }}">
-                    <i data-feather="home"></i>
-                    <span>Manage Users</span>
+                    <i data-feather="users"></i>
+                    <span>{{ trans('main_trans.Manage Users') }}</span>
                 </a>
             </li>
-            {{-- @can('role-list') --}}
+            @endcan
+
+            @can('role-list')
             <li>
                 <a class="sidebar-header" href="{{ route('admin.roles.index') }}">
-                    <i data-feather="home"></i>
-                    <span>Manage Role</span>
+                    <i data-feather="settings"></i>
+                    <span>{{ trans('main_trans.Manage Role') }}</span>
                 </a>
             </li>
-            {{-- @endcan --}}
+            @endcan
 
         </ul>
     </div>

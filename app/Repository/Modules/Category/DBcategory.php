@@ -71,7 +71,6 @@ class DBcategory implements CategoryInterface
         if (!$category) {
             return redirect()->route('admin.category.all')->with('errors', 'Category Is Not Found');
         } else {
-
                 $path = public_path('backend/assets/images/categories/' . $category->image);
                 if (File::exists($path)) {
                     File::delete($path);
