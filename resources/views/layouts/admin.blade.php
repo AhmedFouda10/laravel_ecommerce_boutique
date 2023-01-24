@@ -122,4 +122,5 @@
 
             @include('admin.includes.footer')
 
+
             @include('admin.includes.footer_script')

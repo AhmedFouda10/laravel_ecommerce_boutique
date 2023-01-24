@@ -1,19 +1,23 @@
 @extends('layouts.admin')
 @section('title')
-Empty - فارغه
+    {{ trans('main_trans.Users') }}
+
 @endsection
 
 
 @section('content-title')
-Empty
+    {{ trans('main_trans.Users') }}
+
 @endsection
 
 @section('content-description')
-Empty Description
+{{ trans('main_trans.Show User') }}
+
 @endsection
 
 @section('page-title')
-Empty
+    {{ trans('main_trans.Users') }}
+
 @endsection
 
 @section('content')
@@ -21,7 +25,7 @@ Empty
     <div class="card">
         <div class="card-header">
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('admin.users.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('admin.users.index') }}"> {{ trans('main_trans.Back') }}</a>
             </div>
         </div>
         <div class="card-body">
@@ -42,23 +46,23 @@ Empty
                             <ul class="nav nav-tabs tab-coupon" id="myTab" role="tablist">
                                 <li class="nav-item"><a class="nav-link active show" id="account-tab"
                                         data-bs-toggle="tab" href="#account" role="tab" aria-controls="account"
-                                        aria-selected="true" data-original-title="" title="">Show User</a></li>
+                                        aria-selected="true" data-original-title="" title="">{{ trans('main_trans.Show User') }}</a></li>
                             </ul>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Name:</strong>
+                                    <strong>{{ trans('main_trans.Name') }}:</strong>
                                     {{ $user->name }}
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Email:</strong>
+                                    <strong>{{ trans('main_trans.Email') }}:</strong>
                                     {{ $user->email }}
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Roles:</strong>
+                                    <strong>{{ trans('main_trans.Roles') }}:</strong>
                                     @if(!empty($user->getRoleNames()))
                                         @foreach($user->getRoleNames() as $v)
                                             <label class="badge badge-success">{{ $v }}</label>

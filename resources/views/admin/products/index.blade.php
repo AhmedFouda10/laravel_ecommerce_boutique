@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 @section('title')
-    Empty - فارغه
+{{ trans('main_trans.Product') }}
 @endsection
 
 
 @section('content-title')
-    Empty
+{{ trans('main_trans.Product') }}
 @endsection
 
 @section('content-description')
@@ -13,7 +13,7 @@
 @endsection
 
 @section('page-title')
-    Empty
+{{ trans('main_trans.Product') }}
 @endsection
 
 @section('content')
@@ -26,8 +26,7 @@
                     </div>
                 </form>
                 @can('create product')
-                    <a href="{{ route('admin.product.create') }}" class="btn btn-primary mt-md-0 mt-2">Add New
-                        Product</a>
+                    <a href="{{ route('admin.product.create') }}" class="btn btn-primary mt-md-0 mt-2">{{ trans('main_trans.Add Product') }}</a>
                 @endcan
 
             </div>
@@ -43,15 +42,15 @@
                     <table class="table list-digital all-package table-category " id="editableTable">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Product Image</th>
-                                <th>Product Name</th>
-                                <th>Product Description</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Category Name</th>
-                                <th>Brand Name</th>
-                                <th>Option</th>
+                                <th>{{ trans('main_trans.No') }}</th>
+                                <th>{{ trans('main_trans.Image') }}</th>
+                                <th>{{ trans('main_trans.Name') }}</th>
+                                <th>{{ trans('main_trans.Description') }}</th>
+                                <th>{{ trans('main_trans.Price') }}</th>
+                                <th>{{ trans('main_trans.Quantity') }}</th>
+                                <th>{{ trans('main_trans.Category Name') }}</th>
+                                <th>{{ trans('main_trans.Brand Name') }}</th>
+                                <th>{{ trans('main_trans.Option') }}</th>
                             </tr>
                         </thead>
 

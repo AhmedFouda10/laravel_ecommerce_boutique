@@ -1,19 +1,19 @@
 @extends('layouts.admin')
 @section('title')
-Empty - فارغه
+{{ trans('main_trans.Roles') }}
 @endsection
 
 
 @section('content-title')
-Empty
+{{ trans('main_trans.Roles') }}
 @endsection
 
 @section('content-description')
-Empty Description
+{{ trans('main_trans.Show Roles') }}
 @endsection
 
 @section('page-title')
-Empty
+{{ trans('main_trans.Roles') }}
 @endsection
 
 @section('content')
@@ -21,7 +21,7 @@ Empty
     <div class="card">
         <div class="card-header">
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('admin.roles.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('admin.roles.index') }}"> {{ trans('main_trans.Back') }}</a>
             </div>
         </div>
         <div class="card-body">
@@ -43,18 +43,18 @@ Empty
                                 <li class="nav-item"><a class="nav-link active show" id="account-tab"
                                         data-bs-toggle="tab" href="#account" role="tab"
                                         aria-controls="account" aria-selected="true" data-original-title=""
-                                        title="">Show User</a></li>
+                                        title="">{{ trans('main_trans.Show Roles') }}</a></li>
                             </ul>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Name:</strong>
+                                    <strong>{{ trans('main_trans.Name') }}:</strong>
                                     {{ $role->name }}
                                 </div>
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Permissions:</strong>
+                                    <strong>{{ trans('main_trans.Permissions') }}:</strong>
                                     @if (!empty($rolePermissions))
                                         @foreach ($rolePermissions as $v)
                                             <span class="label" style="background-color: #FF4C3B">{{ $v->name }},</span>

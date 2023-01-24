@@ -1,19 +1,19 @@
 @extends('layouts.admin')
 @section('title')
-Empty - فارغه
+    {{ trans('main_trans.Users') }}
 @endsection
 
 
 @section('content-title')
-Empty
+    {{ trans('main_trans.Users') }}
 @endsection
 
 @section('content-description')
-Empty Description
+{{ trans('main_trans.Edit User') }}
 @endsection
 
 @section('page-title')
-Empty
+    {{ trans('main_trans.Users') }}
 @endsection
 
 @section('content')
@@ -21,7 +21,7 @@ Empty
     <div class="card">
         <div class="card-header">
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('admin.users.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('admin.users.index') }}"> {{ trans('main_trans.Back') }}</a>
             </div>
         </div>
         <div class="card-body">
@@ -42,7 +42,7 @@ Empty
                             <ul class="nav nav-tabs tab-coupon" id="myTab" role="tablist">
                                 <li class="nav-item"><a class="nav-link active show" id="account-tab"
                                         data-bs-toggle="tab" href="#account" role="tab" aria-controls="account"
-                                        aria-selected="true" data-original-title="" title="">Edit User</a></li>
+                                        aria-selected="true" data-original-title="" title="">{{ trans('main_trans.Edit User') }}</a></li>
                             </ul>
                             {!! Form::model($user, ['method' => 'PATCH','route' => ['admin.users.update', $user->id]]) !!}
                             <div class="tab-content" id="myTabContent">
@@ -53,36 +53,35 @@ Empty
 
                                         <div class="form-group row">
                                             <label for="validationCustom1"
-                                                class="col-xl-3 col-md-4"><span>*</span>Name</label>
+                                                class="col-xl-3 col-md-4"><span>*</span>{{ trans('main_trans.Name') }}</label>
                                             <div class="col-xl-8 col-md-7">
                                                 {!! Form::text('name', null, array('class' => 'form-control')) !!}
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="validationCustom2"
-                                                class="col-xl-3 col-md-4"><span>*</span> Email</label>
+                                                class="col-xl-3 col-md-4"><span>*</span> {{ trans('main_trans.Email') }}</label>
                                             <div class="col-xl-8 col-md-7">
                                                 {!! Form::text('email', null, array('class' => 'form-control')) !!}
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="validationCustom3"
-                                                class="col-xl-3 col-md-4"><span>*</span> Password</label>
+                                                class="col-xl-3 col-md-4"><span>*</span> {{ trans('main_trans.Password') }}</label>
                                             <div class="col-xl-8 col-md-7">
                                                 {!! Form::password('password', array('class' => 'form-control')) !!}
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="validationCustom4"
-                                                class="col-xl-3 col-md-4"><span>*</span> Confirm
-                                                Password</label>
+                                                class="col-xl-3 col-md-4"><span>*</span> {{ trans('main_trans.Confirm Password') }}</label>
                                             <div class="col-xl-8 col-md-7">
                                                 {!! Form::password('confirm-password', array('class' => 'form-control')) !!}
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="validationCustom4"
-                                                class="col-xl-3 col-md-4"><span>*</span> Role:</label>
+                                                class="col-xl-3 col-md-4"><span>*</span> {{ trans('main_trans.Roles') }}:</label>
                                             <div class="col-xl-8 col-md-7">
                                                 {!! Form::select('roles_name[]', $roles,$userRole, array('class' => 'form-control','multiple')) !!}
                                                 {{-- {!! Form::select('roles[]', $roles, array('class' => 'form-control','multiple')) !!} --}}

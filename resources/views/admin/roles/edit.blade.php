@@ -1,19 +1,18 @@
 @extends('layouts.admin')
 @section('title')
-Empty - فارغه
+{{ trans('main_trans.Roles') }}
 @endsection
 
-
 @section('content-title')
-Empty
+{{ trans('main_trans.Roles') }}
 @endsection
 
 @section('content-description')
-Empty Description
+{{ trans('main_trans.Edit Roles') }}
 @endsection
 
 @section('page-title')
-Empty
+{{ trans('main_trans.Roles') }}
 @endsection
 
 @section('content')
@@ -21,7 +20,7 @@ Empty
     <div class="card">
         <div class="card-header">
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('admin.roles.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('admin.roles.index') }}"> {{ trans('main_trans.Back') }}</a>
             </div>
         </div>
         <div class="card-body">
@@ -43,7 +42,7 @@ Empty
                                 <li class="nav-item"><a class="nav-link active show" id="account-tab"
                                         data-bs-toggle="tab" href="#account" role="tab"
                                         aria-controls="account" aria-selected="true" data-original-title=""
-                                        title="">Edit User</a></li>
+                                        title="">{{ trans('main_trans.Edit Roles') }}</a></li>
                             </ul>
                             {!! Form::model($role, ['method' => 'PATCH', 'route' => ['admin.roles.update', $role->id]]) !!}
                             <div class="tab-content" id="myTabContent">
@@ -54,7 +53,7 @@ Empty
 
                                     <div class="form-group row">
                                         <label for="validationCustom1"
-                                            class="col-xl-3 col-md-4"><span>*</span>Name</label>
+                                            class="col-xl-3 col-md-4"><span>*</span>{{ trans('main_trans.Name') }}</label>
                                         <div class="col-xl-8 col-md-7">
                                             {!! Form::text('name', null, ['class' => 'form-control']) !!}
                                         </div>

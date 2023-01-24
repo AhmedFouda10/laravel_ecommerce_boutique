@@ -1,19 +1,21 @@
 @extends('layouts.admin')
 @section('title')
-Empty - فارغه
+{{ trans('main_trans.Roles') }}
+
 @endsection
 
 
 @section('content-title')
-Empty
+{{ trans('main_trans.Roles') }}
+
 @endsection
 
 @section('content-description')
-Empty Description
+{{ trans('main_trans.Manage Role') }}
 @endsection
 
 @section('page-title')
-Empty
+{{ trans('main_trans.Roles') }}
 @endsection
 
 @section('content')
@@ -25,7 +27,7 @@ Empty
                     <input class="form-control-plaintext" type="search" placeholder="Search..">
                 </div>
             </form>
-                <a class="btn btn-primary mt-md-0 mt-2" href="{{ route('admin.roles.create') }}"> Create New Role</a>
+                <a class="btn btn-primary mt-md-0 mt-2" href="{{ route('admin.roles.create') }}"> {{ trans('main_trans.Add Role') }}</a>
         </div>
         <div class="card-body">
             @if ($message = Session::get('success'))
@@ -39,9 +41,9 @@ Empty
                 <table class="table list-digital all-package table-category " id="editableTable">
                     <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Name</th>
-                        <th>Action</th>
+                        <th>{{ trans('main_trans.No') }}</th>
+                        <th>{{ trans('main_trans.Name') }}</th>
+                        <th>{{ trans('main_trans.Action') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,17 +52,25 @@ Empty
                             <td>{{ ++$i }}</td>
                             <td>{{ $role->name }}</td>
                             <td>
-                                <a class="btn btn-outline-info btn-sm p-2 edit_show" href="{{ route('admin.roles.show', $role->id) }}">Show</a>
-                                @can('role-edit')
-                                    <a class="btn btn-outline-success btn-sm p-2 edit_show"
-                                        href="{{ route('admin.roles.edit', $role->id) }}">Edit</a>
-                                @endcan
-                                @can('role-delete')
-                                    {!! Form::open(['method' => 'DELETE', 'route' => ['admin.roles.destroy', $role->id], 'style' => 'display:inline']) !!}
-                                    {!! Form::submit('Delete', ['class' => 'btn btn-outline-primary btn-sm p-2']) !!}
-                                    {!! Form::close() !!}
-                                @endcan
-                                
+
+                                <a href="{{ route('admin.roles.show', $role->id) }}">
+                                    <i class="fa fa-eye btn_hover" title="Show"></i>
+                                </a>
+                                <a href="{{ route('admin.roles.edit', $role->id) }}">
+                                    <i class="fa fa-edit btn_hover" title="Edit"></i>
+                                </a>
+
+                                <a href="{{ route('admin.roles.destroy', $role->id) }}" onclick="event.preventDefault();
+                                    document.getElementById('delete-form').submit();">
+                                    <i class="fa fa-trash btn_hover" title="Delete"></i>
+                                </a>
+
+                                <form id="delete-form" action="{{ route('admin.roles.destroy', $role->id) }}" method="POST"
+                                    class="d-none">
+                                    {{ method_field('delete') }}
+                                    @csrf
+                                </form>
+
                             </td>
                         </tr>
                     @endforeach
