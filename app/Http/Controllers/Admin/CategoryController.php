@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\Modules\Category\AddCategory;
 use App\Repository\Modules\Category\CategoryInterface;
@@ -34,26 +35,21 @@ class CategoryController extends Controller
         if($validator->fails()){
             return redirect()->route('admin.category.create')->withInput();
         }else{
-
-
-            // $exists=$this->categoryInterface->check($request);
-            // if($exists){
-            //     return redirect()->route('admin.category.create')->with('errors','This Category Have brand name');
-            // }else{
-                $this->categoryInterface->store($request);
-                return redirect()->route('admin.category.all')->with('success','Category created successfully');
-            // }
+            $this->categoryInterface->store($request);
+            return redirect()->route('admin.category.all')->with('success','Category created successfully');
         }
 
 
     }
 
     public function edit($id){
-        $category=$this->categoryInterface->edit($id);
+        $data=$this->categoryInterface->edit($id);
+        $category=$data['category'];
+        $brands=$data['brands'];
         if(!$category){
             return redirect()->route('admin.category.all')->with('errors','Category Is Not Found');
         }
-        return view('admin.categories.edit',compact('category'));
+        return view('admin.categories.edit',compact('category','brands'));
     }
 
     public function update($id,Request $request){
@@ -76,4 +72,8 @@ class CategoryController extends Controller
     }
 
 
+    public function getallbrands(Request $request){
+        $brands=$this->categoryInterface->getallbrands($request);
+        return view('admin.categories.show',compact('brands'));
+    }
 }

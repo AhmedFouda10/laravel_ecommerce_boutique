@@ -15,9 +15,12 @@ class Brand extends Model
         'description'
     ];
 
-    // public function Categories(){
-    //     return $this->hasMany(Category::class,'brand_id','id');
-    // }
+    protected $hidden=['pivot'];
+
+
+    public function Categories(){
+        return $this->belongsToMany(Category::class,'category_brands','brand_id','category_id','id','id');
+    }
 
     public function Product(){
         return $this->hasMany(Product::class,'brand_id','id');

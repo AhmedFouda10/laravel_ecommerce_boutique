@@ -39,18 +39,21 @@ class DBcategory implements CategoryInterface
         $category->name = $request->name;
         $category->description = $request->description;
         // $category->brand_id = $request->brand_id;
-        return $category->save();
+        $category->save();
+        $cate=Category::find($category->id);
+        return $cate->Brands()->syncWithoutDetaching($request->brands_id);
 
     }
-
-    // public function check($request){
-    //    return $check=Category::where('name',$request->name)->where('brand_id',$request->brand_id)->first();
-    // }
 
 
     public function edit($id)
     {
-        return Category::find($id);
+        $category=Category::find($id);
+        $brands = Brand::all();
+        return $data = [
+            'category'=>$category,
+            'brands' => $brands,
+        ];
     }
 
     public function update($id, $request)
@@ -76,7 +79,8 @@ class DBcategory implements CategoryInterface
 
             $category->name = $request->name;
             $category->description = $request->description;
-            return $category->update();
+            $category->update();
+            return $category->Brands()->syncWithoutDetaching($request->brands_id);
         }
     }
 
@@ -94,5 +98,10 @@ class DBcategory implements CategoryInterface
             $category->delete();
             return redirect()->route('admin.category.all')->with('success', 'Category Deleted Successfully');
         }
+    }
+
+    public function getallbrands($request){
+        $category=Category::find($request->id);
+        return $category->Brands;
     }
 }

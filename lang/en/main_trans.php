@@ -47,5 +47,5 @@ return [
 "Show User"=>"Show User",
 "Show Roles"=>"Show Roles",
 "Logout"=>"Logout",
-
+"Show Brands"=>"Show Brands",
 ];

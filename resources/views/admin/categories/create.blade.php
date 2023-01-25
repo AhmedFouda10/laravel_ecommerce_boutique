@@ -71,19 +71,18 @@
 
                                         </div>
 
-                                        {{-- <div class="form-group row">
+                                        <div class="form-group row">
                                             <label for="validationCustom0"
                                                 class="col-xl-3 col-md-4"><span>*</span>
                                                 {{ trans('main_trans.Brand Name') }}</label>
                                             <div class="col-xl-8 col-md-7">
-                                                <select name="brand_id" required class="form-control">
-                                                    <option selected disabled>select brand</option>
+                                                <select name="brands_id[]" required class="form-control" multiple>
                                                     @foreach ($brands as $brand)
                                                         <option value="{{$brand->id}}">{{$brand->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
-                                        </div> --}}
+                                        </div>
 
                                         <div class="form-group row editor-label">
                                             <label class="col-xl-3 col-md-4"><span>*</span>

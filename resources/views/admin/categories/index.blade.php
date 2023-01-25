@@ -58,15 +58,15 @@
                                     <td>{!! $category->description !!}</td>
                                     {{-- <td>{{$category->Brands->name}}</td> --}}
                                     <td>
-
+                                        <a href="{{ route('admin.category.show', $category->id) }}">
+                                            <i class="fa fa-eye" title="Show Brands"></i>
+                                        </a>
                                         @can('edit category')
-                                        <a href="{{ route('admin.category.delete', $category->id) }}">
-                                            <i class="fa fa-trash" title="Delete"></i>
+                                        <a href="{{ route('admin.category.edit', $category->id) }}">
+                                            <i class="fa fa-edit" title="Edit"></i>
                                         </a>
                                         @endcan
-                                            <a href="{{ route('admin.category.edit', $category->id) }}">
-                                                <i class="fa fa-edit" title="Edit"></i>
-                                            </a>
+
                                             @can('delete category')
                                             <a href="{{ route('admin.category.delete', $category->id) }}">
                                                 <i class="fa fa-trash" title="Delete"></i>
