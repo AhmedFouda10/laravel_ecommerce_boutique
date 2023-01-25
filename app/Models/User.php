@@ -25,6 +25,8 @@ class User extends Authenticatable
         'is_admin',
         'roles_name',
         'status',
+        'facebook_id',
+        'google_id',
     ];
 
     /**

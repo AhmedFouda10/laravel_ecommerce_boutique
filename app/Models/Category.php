@@ -14,8 +14,13 @@ class Category extends Model
     protected $fillable=[
         'name',
         'image',
-        'description'
+        'description',
+        // 'brand_id'
     ];
+
+    // public function Brands(){
+    //     return $this->belongsTo(Brand::class,'brand_id','id');
+    // }
 
     public function Product(){
         return $this->hasMany(Product::class,'category_id','id');

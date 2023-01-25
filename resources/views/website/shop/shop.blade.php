@@ -26,16 +26,21 @@
           <!-- SHOP SIDEBAR-->
           <div class="col-lg-3 order-2 order-lg-1">
             <h5 class="text-uppercase mb-4">Categories</h5>
-            @foreach ($categories  as $category)
-                <div class="py-2 px-4 bg-dark text-white mb-3"><strong class="small text-uppercase font-weight-bold">{{$category->name}}</strong></div>
+                {{-- <div class="py-2 px-4 bg-dark text-white mb-3"><strong class="small text-uppercase font-weight-bold">Categories</strong></div> --}}
+
                 <ul class="list-unstyled small text-muted pl-lg-4 font-weight-normal">
-                    @foreach ($products as $pro)
-                        @if ($pro['category_id']== $category['id'])
-                            <li class="mb-2"><a class="reset-anchor" href="{{route('shop.name',$pro->name)}}">{{$pro->name}}</a></li>
-                        @endif
-                    @endforeach
-                </ul>
+                    {{-- @foreach ($brands as $brand) --}}
+                        {{-- @if ($brand['brand_id']== $category['id']) --}}
+                        <li class="mb-2"><a class="reset-anchor" href="{{route('shop')}}">All</a></li>
+
+            @foreach ($categories  as $category)
+
+                            <li class="mb-2"><a class="reset-anchor" href="{{route('shop.id',$category->id)}}">{{$category->name}}</a></li>
             @endforeach
+
+                            {{-- @endif --}}
+                    {{-- @endforeach --}}
+                </ul>
 
 
             <h6 class="text-uppercase mb-4">Price range</h6>
@@ -138,14 +143,10 @@
             </div>
             <!-- PAGINATION-->
             <nav aria-label="Page navigation example">
-              {{-- <ul class="pagination justify-content-center justify-content-lg-end">
-                <li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-              </ul> --}}
-              {{ $products->links() }}
+              <ul class="pagination justify-content-center justify-content-lg-end">
+                    <li class="page-item active">{{ $products->links('pagination::simple-bootstrap-5') }}</li>
+              </ul>
+
             </nav>
           </div>
         </div>

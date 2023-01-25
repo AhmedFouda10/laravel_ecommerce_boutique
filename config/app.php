@@ -197,6 +197,8 @@ return [
         App\Providers\RepositoryServiesProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
+
 
     ],
 
@@ -215,6 +217,7 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Socialite'=>Laravel\Socialite\Facades\Socialite::class
     ])->toArray(),
 
 ];

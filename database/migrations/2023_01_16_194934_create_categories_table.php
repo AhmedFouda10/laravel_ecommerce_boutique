@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('image');
             $table->text('description');
+            // $table->bigInteger('brand_id')->unsigned();
+            // $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->timestamps();
         });
     }

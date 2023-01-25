@@ -46,4 +46,5 @@ return [
 "Permissions"=>"صلاحيات",
 "Show User"=>"بيانات المستخدم",
 "Show Roles"=>"رؤيه الصلاحيات",
+"Logout"=>"تسجيل خروج",
 ];

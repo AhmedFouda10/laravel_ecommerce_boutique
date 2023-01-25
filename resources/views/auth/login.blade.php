@@ -64,7 +64,20 @@
                                     @endif
                                 </div>
                             </div>
+
+
                         </form>
+
+                        <div class="row mt-2 mb-0">
+                            <label for="password" class="col-md-4 col-form-label text-md-end">Login with</label>
+
+                            <div class="col-md-6">
+                                {{-- <a class="btn btn-success" href="{{ route('otp.login') }}">OTP</a> --}}
+                               <a href="{{ route('facebook.login') }}" class="btn btn-dark">Facebook</a>
+                               <a href="{{ route('google.login') }}" class="btn btn-danger">Google</a>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

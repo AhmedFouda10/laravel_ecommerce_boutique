@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Modules\Category\AddCategory;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\Modules\Category\AddCategory;
 use App\Repository\Modules\Category\CategoryInterface;
 
 class CategoryController extends Controller
@@ -22,7 +23,9 @@ class CategoryController extends Controller
     }
 
     public function create(){
-        return view('admin.categories.create');
+        $data=$this->categoryInterface->create();
+        $brands=$data['brands'];
+        return view('admin.categories.create',compact('brands'));
     }
 
     public function store(AddCategory $request){
@@ -31,8 +34,15 @@ class CategoryController extends Controller
         if($validator->fails()){
             return redirect()->route('admin.category.create')->withInput();
         }else{
-            $this->categoryInterface->store($request);
-            return redirect()->route('admin.category.all')->with('success','Category created successfully');
+
+
+            // $exists=$this->categoryInterface->check($request);
+            // if($exists){
+            //     return redirect()->route('admin.category.create')->with('errors','This Category Have brand name');
+            // }else{
+                $this->categoryInterface->store($request);
+                return redirect()->route('admin.category.all')->with('success','Category created successfully');
+            // }
         }
 
 

@@ -5,10 +5,12 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Website\HomeController;
+use App\Http\Controllers\Website\ShopController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Social\GoogleController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Website\ShopController;
+use App\Http\Controllers\Social\FacebookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,18 @@ Route::group(
         });
 
 
+        // Social Controller
+
+        Route::prefix('facebook')->name('facebook.')->group(function(){
+            Route::get('auth',[FacebookController::class,'LoginUsingFacebook'])->name('login');
+            Route::get('callback',[FacebookController::class,'CallboackFromFacebook'])->name('callback');
+        });
+
+        Route::prefix('google')->name('google.')->group(function(){
+            Route::get('auth',[GoogleController::class,'LoginUsingGoogle'])->name('login');
+            Route::get('callback',[GoogleController::class,'CallboackFromGoogle'])->name('callback');
+        });
+
         Auth::routes();
 
 
@@ -44,7 +58,8 @@ Route::group(
         Route::middleware(['auth'])->group(function(){
             Route::get('/home', [HomeController::class, 'index'])->name('home');
             Route::get('/shop', [ShopController::class, 'index'])->name('shop');
-            Route::get('/shop/{name}', [ShopController::class, 'ProductSelected'])->name('shop.name');
+            Route::get('/shop/{id}', [ShopController::class, 'ProductSelected'])->name('shop.id');
+            Route::get('/shop/{page}',[ShopController::class,'ShopPage'])->name('shop.page');
         });
 
 
@@ -81,6 +96,7 @@ Route::group(
                 Route::get('edit/{id}',[ProductController::class,'edit'])->name('edit');
                 Route::post('update/{id}',[ProductController::class,'update'])->name('update');
                 Route::get('delete/{id}',[ProductController::class,'delete'])->name('delete');
+
             });
         });
     });

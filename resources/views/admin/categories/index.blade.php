@@ -45,6 +45,7 @@
                                 <th>{{ trans('main_trans.Image') }}</th>
                                 <th>{{ trans('main_trans.Name') }}</th>
                                 <th>{{ trans('main_trans.Description') }}</th>
+                                {{-- <th>{{ trans('main_trans.Brand Name') }}</th> --}}
                                 <th>{{ trans('main_trans.Action') }}</th>
                             </tr>
                         </thead>
@@ -55,6 +56,7 @@
                                     <td><img src="{{asset('backend/assets/images/categories/'.$category->image)}}" alt=""></td>
                                     <td>{{ $category->name }}</td>
                                     <td>{!! $category->description !!}</td>
+                                    {{-- <td>{{$category->Brands->name}}</td> --}}
                                     <td>
 
                                         @can('edit category')

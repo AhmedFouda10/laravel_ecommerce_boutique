@@ -46,5 +46,6 @@ return [
 "Permissions"=>"Permissions",
 "Show User"=>"Show User",
 "Show Roles"=>"Show Roles",
+"Logout"=>"Logout",
 
 ];
