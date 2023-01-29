@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\Modules\Category\AddCategory;
+use App\Models\Brand;
+use App\Models\CategoryBrand;
 use App\Repository\Modules\Category\CategoryInterface;
 
 class CategoryController extends Controller
@@ -75,5 +77,6 @@ class CategoryController extends Controller
     public function getallbrands(Request $request){
         $brands=$this->categoryInterface->getallbrands($request);
         return view('admin.categories.show',compact('brands'));
+
     }
 }

@@ -102,31 +102,31 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="validationCustom0"
-                                                class="col-xl-3 col-md-4"><span>*</span>
+                                            <label for="inputName" class="col-xl-3 col-md-4"><span>*</span>
                                                 {{ trans('main_trans.Category Name') }}</label>
                                             <div class="col-xl-8 col-md-7">
-                                                <select name="category_id" id="" required class="form-control">
-                                                    @foreach ($categories as $category)
-                                                        <option value="{{$category->id}}">{{$category->name}}</option>
-                                                    @endforeach
-                                                </select>
+
+                                            <select name="category" class="form-control SlectBox" onclick="console.log($(this).val())"
+                                                onchange="console.log('change is firing')">
+                                                <!--placeholder-->
+                                                <option value="" selected disabled>-- Select Category --</option>
+                                                @foreach ($categories as $category)
+                                                    <option value="{{ $category->id }}"> {{ $category->name }}</option>
+                                                @endforeach
+                                            </select>
                                             </div>
                                         </div>
+
                                         <div class="form-group row">
                                             <label for="validationCustom0"
                                                 class="col-xl-3 col-md-4"><span>*</span>
                                                 {{ trans('main_trans.Brand Name') }}</label>
                                             <div class="col-xl-8 col-md-7">
-                                                <select name="brand_id" id="" required class="form-control">
-                                                    @foreach ($brands as $brand)
-                                                        <option value="{{$brand->id}}">{{$brand->name}}</option>
-                                                    @endforeach
-                                                </select>
+
+                                            <select id="brand" name="brand" class="form-control">
+                                            </select>
                                             </div>
                                         </div>
-
-
 
                                     </div>
 

@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Modules\Product\AddProduct;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\CategoryBrand;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use App\Repository\Modules\Product\ProductInterface;
 
@@ -56,6 +58,7 @@ class ProductController extends Controller
     }
 
     public function update($id,Request $request){
+        // dd($request);
         $validator=Validator::make($request->all(),[
             'name'=>'required|min:4|unique:products,name,'.$id,
             'description'=>'required',
@@ -66,7 +69,7 @@ class ProductController extends Controller
             'brand_id'=>'required'
         ]);
         if($validator->fails()){
-            return redirect()->route('admin.product.edit')->withInput();
+            return redirect()->back()->withInput();
         }else{
             $this->productInterface->update($id,$request);
             return redirect()->route('admin.product.all')->with('success','product Updated Successfully');
@@ -76,5 +79,11 @@ class ProductController extends Controller
 
     public function delete($id,Request $request){
         return $this->productInterface->delete($id,$request);
+    }
+
+    public function fetchBrand($CategoryId)
+    {
+        $category=Category::find($CategoryId);
+        return response()->json($category->Brands);
     }
 }

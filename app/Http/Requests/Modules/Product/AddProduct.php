@@ -29,8 +29,8 @@ class AddProduct extends FormRequest
             'image' =>'required',
             'price'=>'required',
             'quantity' => 'required|digits_between:1,99999999999999',
-            'category_id'=>'required',
-            'brand_id'=>'required'
+            'category'=>'required',
+            'brand'=>'required'
         ];
     }
 }

@@ -48,6 +48,7 @@ Empty Description
                             </ul>
                             <form action="{{ route('admin.product.update',$product->id) }}" method="post" enctype="multipart/form-data" class="dropzone digits" id="singleFileUpload">
                                 @csrf
+
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade active show" id="general" role="tabpanel"
                                         aria-labelledby="general-tab">

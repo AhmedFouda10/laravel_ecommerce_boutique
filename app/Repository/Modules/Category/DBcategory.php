@@ -80,7 +80,7 @@ class DBcategory implements CategoryInterface
             $category->name = $request->name;
             $category->description = $request->description;
             $category->update();
-            return $category->Brands()->syncWithoutDetaching($request->brands_id);
+            return $category->Brands()->sync($request->brands_id);
         }
     }
 

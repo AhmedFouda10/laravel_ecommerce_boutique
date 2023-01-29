@@ -41,8 +41,8 @@ class DBproduct implements ProductInterface
         $product->description = $request->description;
         $product->price = $request->price;
         $product->quantity = $request->quantity;
-        $product->category_id = $request->category_id;
-        $product->brand_id = $request->brand_id;
+        $product->category_id = $request->category;
+        $product->brand_id = $request->brand;
         return $product->save();
     }
 

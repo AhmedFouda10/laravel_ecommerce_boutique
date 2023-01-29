@@ -1,19 +1,19 @@
 @extends('layouts.admin')
 @section('title')
-{{ trans('main_trans.Roles') }}
+{{ trans('main_trans.Category') }}
 @endsection
 
 
 @section('content-title')
-{{ trans('main_trans.Roles') }}
+{{ trans('main_trans.Category') }}
 @endsection
 
 @section('content-description')
-{{ trans('main_trans.Show Roles') }}
+{{ trans('main_trans.Show Brands') }}
 @endsection
 
 @section('page-title')
-{{ trans('main_trans.Roles') }}
+{{ trans('main_trans.Category') }}
 @endsection
 
 @section('content')
