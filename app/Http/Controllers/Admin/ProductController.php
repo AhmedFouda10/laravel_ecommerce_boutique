@@ -83,7 +83,6 @@ class ProductController extends Controller
 
     public function fetchBrand($CategoryId)
     {
-        $category=Category::find($CategoryId);
-        return response()->json($category->Brands);
+        return $this->productInterface->fetchBrand($CategoryId);
     }
 }

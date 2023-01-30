@@ -43,5 +43,12 @@ class DBWebsite implements WebsiteInterface{
         ];
     }
 
-
+    public function filter(){
+        $categories= Category::all();
+        $products= Product::all();
+        return $data=[
+            'categories'=>$categories,
+            'products'=>$products,
+        ];
+    }
 }

@@ -6,4 +6,5 @@ interface WebsiteInterface{
     public function all();
     public function shop();
     public function ProductSelected($id);
+    public function filter();
 }

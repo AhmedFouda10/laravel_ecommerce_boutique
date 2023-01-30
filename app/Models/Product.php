@@ -29,4 +29,5 @@ class Product extends Model
     public function Brand(){
         return $this->belongsTo(Brand::class,'brand_id','id');
     }
+
 }

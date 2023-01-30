@@ -198,6 +198,7 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Darryldecode\Cart\CartServiceProvider::class,
 
 
     ],
@@ -217,7 +218,8 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Socialite'=>Laravel\Socialite\Facades\Socialite::class
+        'Socialite'=>Laravel\Socialite\Facades\Socialite::class,
+        'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
     ])->toArray(),
 
 ];

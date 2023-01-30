@@ -104,4 +104,9 @@ class DBproduct implements ProductInterface
         }
     }
 
+    public function fetchBrand($CategoryId){
+        $category=Category::find($CategoryId);
+        return response()->json($category->Brands);
+    }
+
 }

@@ -11,6 +11,8 @@ use App\Http\Controllers\Social\GoogleController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Social\FacebookController;
+use App\Http\Controllers\Website\CartController;
+use App\Http\Controllers\Website\DetailsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +62,17 @@ Route::group(
             Route::get('/shop', [ShopController::class, 'index'])->name('shop');
             Route::get('/shop/{id}', [ShopController::class, 'ProductSelected'])->name('shop.id');
             Route::get('/shop/{page}',[ShopController::class,'ShopPage'])->name('shop.page');
+            Route::post('productfilter', [ShopController::class,'filter'])->name('product.filter');
+            Route::get('productDetails/{id}',[DetailsController::class,'index'])->name('product.details');
+
+
+            // Route::get('cart/all', [ProductController::class, 'productList'])->name('products.list');
+            Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
+            Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
+            Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+            Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
+            Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
+
         });
 
 
@@ -98,6 +111,7 @@ Route::group(
                 Route::post('update/{id}',[ProductController::class,'update'])->name('update');
                 Route::get('delete/{id}',[ProductController::class,'delete'])->name('delete');
                 Route::get('fetchBrands/{CategoryId}', [ProductController::class, 'fetchBrand']);
+
             });
         });
     });

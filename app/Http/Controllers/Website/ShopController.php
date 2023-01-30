@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Website;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use App\Repository\Modules\Website\WebsiteInterface;
 
@@ -32,5 +33,20 @@ class ShopController extends Controller
 
     public function ShopPage(){
         return view('website.shop.shop',compact('categories','products','lengthPage'));
+    }
+
+    public function filter(Request $request)
+    {
+        $data=$this->websiteInterface->filter();
+        $categories=$data['categories'];
+        $products=$data['products'];
+        $minproduct=$request->minproduct;
+        $maxproduct=$request->maxproduct;
+        $filterproduct=Product::whereBetween('price', [$minproduct, $maxproduct])->get();
+
+        dd($filterproduct);
+
+        // return view('website.shop.shop_filterProduct',compact('categories','products','filterproduct'));
+
     }
 }
